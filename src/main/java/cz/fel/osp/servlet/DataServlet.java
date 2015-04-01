@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 public class DataServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
+	private UniqueCounter uc = UniqueCounter.getInstance();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -28,11 +30,15 @@ public class DataServlet extends HttpServlet {
 			String[] split = line.split("\\s");
 			
 			for (String word : split) {
-				UniqueCounter.getInstance().addWord(word);
+				uc.addWord(word);
 			}
 		}
 		
 		resp.setStatus(204);
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 
 }

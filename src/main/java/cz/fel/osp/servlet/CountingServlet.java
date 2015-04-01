@@ -21,6 +21,19 @@ public class CountingServlet extends HttpServlet {
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("utf-8");
 		
+		/*
+		try {
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/home/j/projects/skola/osp/myoutput.txt")));
+			for (String word : UniqueCounter.getInstance().getUniques()) {
+				bw.write(word);
+				bw.write("\n");
+			}
+			bw.close();
+			
+		} catch (Exception e) {
+			System.err.println(e);
+		}*/
+		
 		PrintWriter out = resp.getWriter();
 		out.println(UniqueCounter.getInstance().getUniquesCount());
 		

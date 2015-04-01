@@ -22,7 +22,9 @@ public class UniqueCounter {
 	public void addWord(String word) {
 		if (!uniques.contains(word)) {
 			synchronized (uniques) {
-				uniques.add(word);
+				if (!uniques.contains(word)) {
+					uniques.add(word);
+				}
 			}
 		}
 	}
@@ -33,6 +35,10 @@ public class UniqueCounter {
 	
 	public void clearUniques() {
 		uniques.clear();
+	}
+	
+	public Set<String> getUniques() {
+		return new HashSet<>(uniques);
 	}
 }
 
