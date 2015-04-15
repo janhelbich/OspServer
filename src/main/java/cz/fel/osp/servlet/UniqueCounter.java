@@ -8,7 +8,7 @@ public class UniqueCounter {
 	private final Set<String> uniques;
 	
 	private UniqueCounter () {
-		uniques = new HashSet<>();
+		uniques = new HashSet<String>();
 	}
 	
 	public static UniqueCounter getInstance() {
@@ -38,7 +38,7 @@ public class UniqueCounter {
 	}
 	
 	public Set<String> getUniques() {
-		return new HashSet<>(uniques);
+		return new HashSet<String>(uniques);
 	}
 }
 

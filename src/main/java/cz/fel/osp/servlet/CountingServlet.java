@@ -4,12 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/*" })
 public class CountingServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -34,8 +32,11 @@ public class CountingServlet extends HttpServlet {
 			System.err.println(e);
 		}*/
 		
+		UniqueCounter uc = UniqueCounter.getInstance();
 		PrintWriter out = resp.getWriter();
-		out.println(UniqueCounter.getInstance().getUniquesCount());
+		out.println(uc.getUniquesCount() - 1);
+		uc.clearUniques();
+		
 		
 		out.close();
 		
